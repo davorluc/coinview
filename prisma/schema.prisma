@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../node_modules/@prisma-app/client"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Coin {
+  id Int     @id @default(autoincrement())
+  nominal String
+  origin String
+  continent String
+  shorthand String
+  avers String
+  revers String
+  general String
+  year String
+  value Int
+
+  tray Tray @relation(fields: [trayId], references: [id])
+  trayId Int
+}
+
+model Tray {
+  id Int @id @default(autoincrement())
+  name String
+  coins Coin[]
+}

@@ -4,4 +4,12 @@
 	let { children } = $props();
 </script>
 
+<header class="bg-cream flex items-center justify-between p-4">
+	<h1 class="font-serif text-2xl">CoinView</h1>
+	<nav class="space-x-4">
+		<a href="/" class="hover:underline">Home</a>
+		<a href="/coins" class="hover:underline">Coins</a>
+		<a href="/trays" class="hover:underline">TrayTrayss</a>
+	</nav>
+</header>
 {@render children()}

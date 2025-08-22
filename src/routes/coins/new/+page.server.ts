@@ -34,6 +34,6 @@ export const actions: Actions = {
 			}
 		});
 
-		throw redirect(303, '/tray');
+		throw redirect(303, '/coins');
 	}
 };

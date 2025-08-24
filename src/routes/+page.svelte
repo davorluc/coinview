@@ -22,9 +22,7 @@
 	</div>
 {/if}
 
-<main class="bg-amber-50">
-	<slot />
-</main>
+<slot />
 
 <style>
 	.splash {

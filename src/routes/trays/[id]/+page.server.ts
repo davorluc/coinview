@@ -9,7 +9,28 @@ export async function load({ params }) {
 			}
 		}
 	});
+
+	const allCoins = await prisma.coin.findMany();
 	return {
-		coins
+		coins,
+		allCoins
 	};
 }
+
+export const actions = {
+	default: async ({ request, params }) => {
+		const data = await request.formData();
+		const coinIds = data.getAll('coinIds').map((id) => Number(id));
+
+		await prisma.tray.update({
+			where: { id: Number(params.id) },
+			data: {
+				coins: {
+					set: coinIds.map((id) => ({ id }))
+				}
+			}
+		});
+
+		return { success: true };
+	}
+};

@@ -9,7 +9,7 @@
 	<nav class="space-x-4">
 		<a href="/" class="hover:underline">Home</a>
 		<a href="/coins" class="hover:underline">Coins</a>
-		<a href="/trays" class="hover:underline">TrayTrayss</a>
+		<a href="/trays" class="hover:underline">Trays</a>
 	</nav>
 </header>
 {@render children()}

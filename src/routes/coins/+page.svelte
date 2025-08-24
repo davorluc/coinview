@@ -6,12 +6,10 @@
 	function flipAddingCoinState() {
 		addingCoin = !addingCoin;
 	}
-
-	// let { form } = $props();
 </script>
 
 <main>
-	<button class="bg-black p-4 text-white" on:click={flipAddingCoinState}>Add coin + </button>
+	<button class="bg-black p-4 text-white" onclick={flipAddingCoinState}>Add coin + </button>
 	<div class="grid grid-cols-4 gap-6 p-4">
 		{#each data.coins as coin (coin.id)}
 			<div class="tray-coin rounded bg-white p-6 shadow">
@@ -28,7 +26,7 @@
 				<!-- Close button -->
 				<button
 					class="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-					on:click={flipAddingCoinState}
+					onclick={flipAddingCoinState}
 				>
 					✕
 				</button>

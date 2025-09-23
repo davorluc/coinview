@@ -23,9 +23,10 @@ model Coin {
   general String
   year String
   value Int
+  imageUrl String?
 
-  tray Tray @relation(fields: [trayId], references: [id])
-  trayId Int
+  tray Tray? @relation(fields: [trayId], references: [id])
+  trayId Int?
 }
 
 model Tray {

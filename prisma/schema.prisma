@@ -13,20 +13,20 @@ datasource db {
 }
 
 model Coin {
-  id Int     @id @default(autoincrement())
-  nominal String
-  origin String
+  id        Int    @id @default(autoincrement())
+  nominal   String
+  origin    String
   continent String
   shorthand String
-  avers String
-  revers String
-  general String
-  year String
-  value Int
-  imageUrl String?
+  avers     String
+  revers    String
+  general   String
+  year      String
+  value     Int
+  imageUrl  String?
 
-  tray Tray? @relation(fields: [trayId], references: [id])
-  trayId Int?
+  tray   Tray?  @relation(fields: [trayId], references: [id])
+  trayId Int?   // nullable foreign key
 }
 
 model Tray {

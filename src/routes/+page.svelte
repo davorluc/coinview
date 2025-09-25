@@ -22,6 +22,13 @@
 	</div>
 {/if}
 
+<div class="container">
+	<form method="GET" action="/trays" class="flex gap-2">
+		<input type="text" name="q" placeholder="Enter tray ID..." class="flex-1 rounded border p-2" />
+		<button type="submit" class="rounded bg-[#a31d1d] px-4 py-2 text-white"> Open Tray </button>
+	</form>
+</div>
+
 <slot />
 
 <style>

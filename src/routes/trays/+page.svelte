@@ -4,7 +4,6 @@
 	console.log(data);
 
 	let addingTray = $state(false);
-	let editingCoin = $state(false); // TODO: add editing functionality
 
 	function flipAdd() {
 		addingTray = !addingTray;

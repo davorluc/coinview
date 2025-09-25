@@ -56,7 +56,7 @@
 				{/each}
 			</div>
 			<form method="POST">
-				{#each selected as id}
+				{#each selected as id (id)}
 					<input type="hidden" name="coinIds" value={id} />
 				{/each}
 

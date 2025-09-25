@@ -1,19 +1,124 @@
 <script lang="ts">
+	// import type { Coin } from '@prisma/client';
 	let { data } = $props();
 
 	let addingCoin = $state(false);
-	let editingCoin: any = $state(null); // null = no coin selected
+	let editingCoin: Coin | null = $state(null); // null = no coin selected
 
 	function flipAdd() {
 		addingCoin = !addingCoin;
 	}
-
-	function flipEdit() {
-		addingCoin = !addingCoin;
-	}
 </script>
 
-<button class="rounded bg-[#a31d1d] p-4 text-white" onclick={flipAdd}>Add coin + </button>
+<div class="mb-4 flex items-center gap-4">
+	<button class="rounded bg-[#a31d1d] p-4 text-white" onclick={flipAdd}>Add coin + </button>
+	<div class="flex items-center gap-2">
+		<span>Sort by:</span>
+		<a
+			href={`/coins?sortBy=nominal&sortOrder=${data.sortBy === 'nominal' && data.sortOrder === 'asc' ? 'desc' : 'asc'}`}
+			class="flex items-center gap-1 rounded-full border border-[#a31d1d] bg-white px-3 py-1 text-sm {data.sortBy ===
+			'nominal'
+				? 'font-bold'
+				: ''}"
+		>
+			Nominal
+			{#if data.sortBy === 'nominal'}
+				{#if data.sortOrder === 'asc'}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+					</svg>
+				{:else}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+					</svg>
+				{/if}
+			{/if}
+		</a>
+		<a
+			href={`/coins?sortBy=year&sortOrder=${data.sortBy === 'year' && data.sortOrder === 'asc' ? 'desc' : 'asc'}`}
+			class="flex items-center gap-1 rounded-full border border-[#a31d1d] bg-white px-3 py-1 text-sm {data.sortBy ===
+			'year'
+				? 'font-bold'
+				: ''}"
+		>
+			Year
+			{#if data.sortBy === 'year'}
+				{#if data.sortOrder === 'asc'}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+					</svg>
+				{:else}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+					</svg>
+				{/if}
+			{/if}
+		</a>
+		<a
+			href={`/coins?sortBy=origin&sortOrder=${data.sortBy === 'origin' && data.sortOrder === 'asc' ? 'desc' : 'asc'}`}
+			class="flex items-center gap-1 rounded-full border border-[#a31d1d] bg-white px-3 py-1 text-sm {data.sortBy ===
+			'origin'
+				? 'font-bold'
+				: ''}"
+		>
+			Origin
+			{#if data.sortBy === 'origin'}
+				{#if data.sortOrder === 'asc'}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+					</svg>
+				{:else}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-4 w-4"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+					</svg>
+				{/if}
+			{/if}
+		</a>
+	</div>
+</div>
+
 <div class="grid grid-cols-4 gap-6">
 	{#each data.coins as coin (coin.id)}
 		<div class="tray-coin flex flex-col gap-1 rounded bg-white p-6 shadow">

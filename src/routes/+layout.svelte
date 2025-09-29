@@ -16,7 +16,7 @@
 </header>
 <main>
 	<section class="px-10 py-20">
-		<div class="container flex flex-col gap-10">
+		<div class="container flex flex-col gap-10 justify-self-center pt-10">
 			{@render children()}
 		</div>
 	</section>

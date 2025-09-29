@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import type { Coin } from '@prisma/client';
+	import type { Coin } from '@prisma-app/client';
 	let { data } = $props();
 
 	let addingCoin = $state(false);

@@ -3,7 +3,7 @@
 
 	export let data: PageData;
 
-	const { totalCoins, totalTrays } = data;
+	const { totalCoins, totalTrays, totalValue } = data;
 </script>
 
 <div class="container mx-auto p-4">
@@ -17,6 +17,12 @@
 		<div class="rounded-lg bg-white p-6 shadow-md">
 			<h2 class="text-xl font-semibold text-gray-700">Total Trays</h2>
 			<p class="text-4xl font-bold text-[#a31d1d]">{totalTrays}</p>
+		</div>
+		<div class="rounded-lg bg-white p-6 shadow-md">
+			<h2 class="text-xl font-semibold text-gray-700">Total Value</h2>
+			<p class="text-4xl font-bold text-[#a31d1d]">
+				{new Intl.NumberFormat('de-CH', { style: 'currency', currency: 'CHF' }).format(totalValue)}
+			</p>
 		</div>
 	</div>
 
